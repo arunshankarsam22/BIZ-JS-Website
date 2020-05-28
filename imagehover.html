@@ -1,0 +1,42 @@
+
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style>
+
+ul li {
+
+    position:absolute;
+    list-style: none;
+}
+</style>
+</head>
+<body>
+<ul id="vennD">
+    <li><img id="1" src="http://www.placehold.it/100x100/D00" /></li>
+    <li><img id="2" src="http://www.placehold.it/100x100/0D0" /></li>
+    <li><img id="3" src="http://www.placehold.it/100x100/00D" /></li>
+    <li><img id="4" src="http://www.placehold.it/100x100/0DD" /></li>
+    <li><img id="5" src="http://www.placehold.it/100x100/DD0" /></li>
+</ul>
+<script>
+
+$('#vennD li:first').addClass('show');
+$('#vennD li:gt(0)').hide();
+
+function loopImages() {
+    var next1 = $("#vennD li.show").next('li');
+    if (!next1.length) next1 = $("#vennD li:first");
+    $("#vennD li.show").removeClass('show').fadeOut(500);
+    next1.addClass('show').fadeIn(500);
+
+
+}
+
+vennD.addEventListener("mouseover",loopImages);
+
+</script>
+
+
+</body>
+</html>
